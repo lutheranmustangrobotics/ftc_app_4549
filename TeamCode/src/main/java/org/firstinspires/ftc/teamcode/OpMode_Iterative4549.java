@@ -71,6 +71,7 @@ public class OpMode_Iterative4549 extends OpMode {
     DcMotor motorright;
     DcMotor motorrightalso;
     DcMotor intake;
+    DcMotor intakealso;
     DcMotor flywheelleft;
     DcMotor flywheelright;
 
@@ -99,7 +100,8 @@ public class OpMode_Iterative4549 extends OpMode {
         motorrightalso = hardwareMap.dcMotor.get("motorrightalso");
         motorleft.setDirection(DcMotor.Direction.REVERSE);
         motorleftalso.setDirection(DcMotor.Direction.REVERSE);
-        // intake = hardwareMap.dcMotor.get("intake");
+        intake = hardwareMap.dcMotor.get("intake");
+        intakealso = hardwareMap.dcMotor.get("intakealso");
         flywheelleft = hardwareMap.dcMotor.get("flywheelleft");
         flywheelright = hardwareMap.dcMotor.get("flywheelright");
     }
@@ -150,10 +152,16 @@ public class OpMode_Iterative4549 extends OpMode {
         }
         if (gamepad1.y) {
             intake.setPower(0.8);
+            intakealso.setPower(0.8);
+
         } else if (gamepad1.b) {
             intake.setPower(-0.8);
+            intakealso.setPower(-0.8);
+
         } else {
             intake.setPower(0);
+            intakealso.setPower(0);
+
         }
         if (gamepad1.x) {
             flywheelleft.setPower(0.8);
